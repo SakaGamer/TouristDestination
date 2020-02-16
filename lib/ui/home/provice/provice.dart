@@ -42,7 +42,6 @@ class _ProviceState extends State<ProvicePage> {
         .collection("provinces")
         .getDocuments()
         .then((datas) {
-      print(datas.documents.length);
       for (var data in datas.documents) {
         Province province = Province.from(data);
         list.add(province);

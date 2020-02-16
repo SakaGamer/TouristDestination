@@ -12,7 +12,7 @@ class PlacePage extends StatefulWidget {
 class _PlacePageState extends State<PlacePage> {
   List<Place> list = List();
   bool _isLoading = false;
-  
+
   @override
   void initState() {
     super.initState();
@@ -38,7 +38,6 @@ class _PlacePageState extends State<PlacePage> {
       _isLoading = true;
     });
     await Firestore.instance.collection('places').getDocuments().then((datas) {
-      print(datas.documents.length);
       for (var data in datas.documents) {
         Place place = Place.from(data);
         list.add(place);
